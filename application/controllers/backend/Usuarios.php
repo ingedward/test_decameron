@@ -19,14 +19,6 @@ class Usuarios extends CI_Controller {
 			$username 	= $this->input->post('username');
 			$password 	= $this->input->post('password');
 			$data = $this->usuarios_model->login($username,$password);
-
-			// foreach($data as $row)
-			// {
-			// 	$output['id'] 			= $row['id'];
-			// 	$output['nombre'] 		= $row['nombre'];
-			// 	$output['rol'] 			= $row['rol'];
-			// }
-			//$data = $this->usuarios_model->login($username,$password);
 			echo json_encode($data);
 		}
 	}
