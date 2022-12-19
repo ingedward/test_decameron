@@ -6,6 +6,8 @@ class Auth extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('url');
+    	define('API_URL', base_url('backend/'));
 		$this->load->model("Usuarios_model");
 	}
 
@@ -31,7 +33,9 @@ class Auth extends CI_Controller {
 			'password' 		=> $password, 
 		);
 
-		$api_url = "http://localhost/jerp/decameron_ci/backend/usuarios/login";
+		// $api_url = "http://localhost/jerp/decameron_ci/backend/usuarios/login";
+		$api_url = API_URL . "usuarios/login";
+
 		$client = curl_init($api_url);
 		curl_setopt($client, CURLOPT_POST, true);
 		curl_setopt($client, CURLOPT_POSTFIELDS, $data);
